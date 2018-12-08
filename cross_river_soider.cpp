@@ -73,6 +73,6 @@ int main()
     printf("\n");
 
     printf("%lld", count[B1][B2]);
-    system("pause"); // 防止程序一闪而过，提交时应删去
+    system("pause");
     return 0;
 }
