@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#define maxn 101
 int is_reverse(char *s)
 {
     int i = 0;
@@ -15,7 +16,7 @@ int is_reverse(char *s)
 
 int main(int argc, char const *argv[])
 {
-    char s[10];
+    char s[maxn];
     memset(s, 56, sizeof(s));
     while(scanf("%s", s) == 1 && *s != '0')
         if(is_reverse(s))
