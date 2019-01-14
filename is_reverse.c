@@ -17,7 +17,7 @@ int is_reverse(char *s)
 int main(int argc, char const *argv[])
 {
     char s[maxn];
-    memset(s, 56, sizeof(s));
+    memset(s, 48, sizeof(s));
     while(scanf("%s", s) == 1 && *s != '0')
         if(is_reverse(s))
             printf("is reverse\n");
