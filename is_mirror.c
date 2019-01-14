@@ -7,13 +7,17 @@ const char *mirror_upper = "A   3  HIL JM O   2TUVWXY501SE Z  8 ";
 const char *mirror_lower = " d b    i  lmnoqp   uvwx  ";
 char ch_num(char ch)
 {
-    if (isalpha(ch))
-    {
-        if (islower(ch))
-            return mirror_lower[ch - 'a'];
-        if (isalpha(ch) == 2)
-            return mirror_upper[ch - 'A'];
-    }
+    // if (isalpha(ch)) islower(ch)||isupper(ch)
+    // {
+    //     if (islower(ch))
+    //         return mirror_lower[ch - 'a'];
+    //     if (isupper(ch))
+    //         return mirror_upper[ch - 'A'];
+    // }
+    if (isalpha(ch) == 2)
+        return mirror_lower[ch - 'a'];
+    if (isalpha(ch) == 1)
+        return mirror_upper[ch - 'A'];
     if (isdigit(ch))
         return mirror_upper[ch - '0' + 26];
 }
