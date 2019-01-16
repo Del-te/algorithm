@@ -5,7 +5,7 @@
 
 char str1[maxn];
 char str2[maxn];
-int count1[26];
+int count1[26]; 
 int count2[26];
 
 int comparator(const void *a, const void *b)
