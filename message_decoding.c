@@ -46,8 +46,8 @@ int main(int argc, char const *argv[])
         while ((len = readint(3)) != 0)
             while ((val = readint(len)) != (1 << len) - 1)
                 printf("%c", translate_code[len][val]);
+        i = getchar();
         printf("\n");
     }
     return 0;
 }
-/* $#**\0100000101101100011100101000 */
