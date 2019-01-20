@@ -13,7 +13,7 @@ int readchar()
             return ch;
     }
 }
-int getint(int length)
+int readint(int length)
 {
     int sum = 0;
     while (length--)
@@ -43,8 +43,8 @@ int main(int argc, char const *argv[])
     int i = 0;
     while (readcodes() == 1)
     {
-        while ((len = getint(3)) != 0)
-            while ((val = getint(len)) != (1 << len) - 1)
+        while ((len = readint(3)) != 0)
+            while ((val = readint(len)) != (1 << len) - 1)
                 printf("%c", translate_code[len][val]);
         printf("\n");
     }
