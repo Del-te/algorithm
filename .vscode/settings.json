@@ -27,6 +27,7 @@
         "**/ipch": true,
         "**/x64": true,
         "**/GeneratedFiles": true,
+        "**/.gitignore": true,
         "**/*.db": true
     },
     "C_Cpp.errorSquiggles": "Enabled"
