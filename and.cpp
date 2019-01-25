@@ -21,13 +21,10 @@ int main()
     cout << x << " " << count << endl;
     count = 0;
     int t = x;
-    while(true)
+    while(x != 0)
     {
         x = x & (x-1);
         count++;
-        if (x == 0) {
-            break;
-        }
     }
     cout << t << " " << count << endl;
     system("pause");
