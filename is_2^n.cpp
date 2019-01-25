@@ -12,7 +12,6 @@ int main()
     {
         cout << "no" << endl;
     }
-
     x = 9;
     if ((x & (x - 1)) == 0)
     {
