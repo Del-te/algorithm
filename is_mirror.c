@@ -39,9 +39,9 @@ int main(int argc, char const *argv[])
     memset(s, 0, sizeof(s));
     while (scanf("%s", s) == 1 && s[0] != '#')
     {
-        if(is_mirror(s))
+        if (is_mirror(s))
             printf("is mirror!\n");
-        else 
+        else
             printf("is not mirror!\n");
     }
     system("pause");
