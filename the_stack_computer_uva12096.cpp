@@ -35,7 +35,7 @@ int main()
         stack<int> s;
         while (n--)
         {
-            scanf(" %s", &cmd);
+            scanf("%s", &cmd);
             if (cmd[0] == 'P')
                 s.push(getID(Set())); // 压入一个空集
             else if (cmd[0] == 'D')
