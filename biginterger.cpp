@@ -2,6 +2,7 @@
 #include <vector>
 #include <cstring>
 using namespace std;
+// 大数高精度运算
 struct BigInteger
 {
     static const int BASE = 100000000;
@@ -34,7 +35,7 @@ struct BigInteger
         // 若有33位，分成(33-1)/8+1=5块，所有情况通吃，好技巧。
         // 共有几块
         int len = (str.length() - 1) / WIDTH + 1; // 分块技巧
-        for (size_t i = 0; i < len; i++)
+        for (int i = 0; i < len; i++)
         {
             // 由start 和 end 取每八位
             int end = str.length() - i * WIDTH; // 分块技巧
@@ -53,10 +54,10 @@ struct BigInteger
     }
     BigInteger operator+(const BigInteger &b) const
     {
-        // 新声明一个用来存结果
+        // 新声明一个实例用来存结果
         BigInteger result;
         result.s.clear();
-        for (size_t i = 0, g = 0;; i++)
+        for (int i = 0, g = 0;; i++)
         {
             if (g == 0 && i >= s.size() && i >= b.s.size())
                 break;
@@ -72,7 +73,11 @@ struct BigInteger
         }
         return result;
     }
-};
+    BigInteger operator+=(const BigInteger &b)
+    {
+        *this = *this + b;
+        return *this;
+    }
 ostream &operator<<(ostream &out, const BigInteger &x)
 {
     // 跳过可能不足八位的那个
@@ -91,7 +96,8 @@ ostream &operator<<(ostream &out, const BigInteger &x)
 istream &operator>>(istream &in, BigInteger &x)
 {
     string s;
-    if (!(in >> s)) {
+    if (!(in >> s))
+    {
         return in;
     }
     x = s;
@@ -100,10 +106,11 @@ istream &operator>>(istream &in, BigInteger &x)
 int main()
 {
     BigInteger a, b;
-    a = "1111111111";
+    a = "10000000000000000000000000000000000000000";
     cin >> b;
-    a = a + b;
-    cout << a;
+    // a += b;
+    // cout << a << endl;
+    cout << a << endl;
     system("pause");
     return 0;
 }
