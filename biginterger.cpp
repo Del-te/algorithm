@@ -77,6 +77,7 @@ struct BigInteger
         *this = *this + b;
         return *this;
     }
+};
 ostream &operator<<(ostream &out, const BigInteger &x)
 {
     // 跳过可能不足八位的那个
