@@ -58,6 +58,7 @@ struct BigInteger
         result.s.clear();
         for (int i = 0, g = 0;; i++)
         {
+            // g用来进位，缓冲结果大于八位的情况
             if (g == 0 && i >= s.size() && i >= b.s.size())
                 break;
             int x = g;
@@ -67,8 +68,48 @@ struct BigInteger
             // x = a.s[i] + b.s[i]
             if (i < b.s.size())
                 x += b.s[i];
+            // x % BASE保证只有八位
             result.s.push_back(x % BASE);
+            // 是否需要进位
             g = x / BASE;
+        }
+        return result;
+    }
+    BigInteger operator-(BigInteger &b)
+    {
+        // 新声明一个实例用来存结果
+        BigInteger result;
+        result.s.clear();
+        if (s.size() > b.s.size())
+        {
+            for (int i = 0;; i++)
+            {
+                if (i >= s.size() && i >= b.s.size())
+                    break;
+                int x = 0;
+                // x = a.s[i]
+                if (i < s.size())
+                {
+                    x += s[i];
+                }
+                // x = a.s[i] - b.s[i]
+                if (i < b.s.size())
+                {
+                    x -= b.s[i];
+                }
+                // 借位操作
+                while (true)
+                {
+                    if (x < 0 && i < s.size() - 1)
+                    {
+                        x += BASE;
+                        s[i + 1]--;
+                    }
+                    else
+                        break;
+                }
+                result.s.push_back(x % BASE);
+            }
         }
         return result;
     }
@@ -77,10 +118,16 @@ struct BigInteger
         *this = *this + b;
         return *this;
     }
+    BigInteger operator-=(BigInteger &b)
+    {
+        *this = *this - b;
+        return *this;
+    }
 };
+// 插入||提取 运算符固定重载格式
 ostream &operator<<(ostream &out, const BigInteger &x)
 {
-    // 跳过可能不足八位的那个
+    // 循环跳过可能不足八位的那个, 可能不足八位的只能是最后一块
     out << x.s.back();
     for (int i = x.s.size() - 2; i >= 0; i--)
     {
@@ -93,8 +140,10 @@ ostream &operator<<(ostream &out, const BigInteger &x)
     }
     return out;
 }
+// 插入||提取 运算符固定重载格式
 istream &operator>>(istream &in, BigInteger &x)
 {
+    // 如果被插入对象是string就赋给x，不是就直接插入
     string s;
     if (!(in >> s))
     {
@@ -106,10 +155,9 @@ istream &operator>>(istream &in, BigInteger &x)
 int main()
 {
     BigInteger a, b;
-    a = "10000000000000000000000000000000000000000";
+    a = "111111111";
     cin >> b;
-    // a += b;
-    // cout << a << endl;
+    a -= b;
     cout << a << endl;
     system("pause");
     return 0;
