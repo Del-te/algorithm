@@ -88,6 +88,7 @@ int main()
     for (int i = 0; i < n; i++)
     {
       // stdin本质是一个文件句柄
+      // fgets到达行末停止，到达eof返回null
       fgets(prog[line++], maxn, stdin);
       ip[i] = line - 1;
       while (prog[line - 1][2] != 'd') // 如果没遇到end
