@@ -7,9 +7,9 @@ using namespace std;
 
 const int maxn = 1000;
 
-// 双端队列
+// 等待队列(双端队列)
 deque<int> readyQ;
-
+// 阻止队列(普通队列)
 queue<int> blockQ;
 
 // 共有n条语句
