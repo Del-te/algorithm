@@ -4,7 +4,7 @@
 #include <cstring>
 using namespace std;
 
-const int maxn = 10 + 5;
+const int maxn = 100000 + 5;
 // 光标位置，光标位于cur号字符之后面
 int cur;
 // 显示器最后一个字符是next[last]
