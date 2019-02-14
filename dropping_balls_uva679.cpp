@@ -27,3 +27,28 @@ int main()
     }
     return 0;
 }
+// 进制编码。经过模拟几次可以看出，球会让开关形成连续二进制数的表示（根是低位）。
+// 当放入第k个球时，开关状态正好是二进制的k，利用模2的余数判断走向即可。
+#include <iostream>
+using namespace std;
+
+int main()
+{
+  int n, c, d;
+  cin >> n;
+  while (n--)
+  {
+    cin >> d >> c;
+    int k = 1;
+    while (--d)
+    {
+      if (c % 2)
+        k = k << 1;
+      else
+        k = (k << 1) + 1;
+      c = (c + 1) >> 1;
+    }
+    cout << k << endl;
+  }
+  return 0;
+}
