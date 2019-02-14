@@ -52,3 +52,32 @@ int main()
   }
   return 0;
 }
+// 从哈夫曼编码角度理解，结果正好是I-1的二进制逆序，感觉很厉害!
+
+#include<cstdio>
+using namespace std;
+
+int main()
+{
+    int T;
+    scanf("%d", &T);
+    int D,I;
+    while(scanf("%d",&D))
+    {
+        if(D==-1) break;
+        scanf("%d",&I);
+        int k=1;//k初始化为1，即最高位为1
+        I-=1;   //求I-1的二进制逆序：
+        while(--D)
+        {
+            if(I&1){
+                k=(k<<1)+1;
+            }else{
+                k<<=1;
+            }
+            I>>=1;
+        }
+        printf("%d\n", k);
+    }
+    return 0;
+}
