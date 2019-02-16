@@ -71,6 +71,7 @@ int main()
         read_list(post_order);
         // 建树
         build(0, n - 1, 0, n - 1);
+        // 变量初始化
         best_sum = 1000000000;
         // 深度优先搜索
         dfs(post_order[n - 1], 0);
