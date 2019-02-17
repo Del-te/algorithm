@@ -19,7 +19,7 @@ bool read_list(int *a)
     stringstream ss(line);
     n = 0;
     int x;
-    while (ss >> x)
+    while (ss >> x) // stringstream以空白字符为分割来分割字符
         a[n++] = x;
     return n > 0;
 }
