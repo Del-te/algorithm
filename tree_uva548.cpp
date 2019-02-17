@@ -27,6 +27,7 @@ bool read_list(int *a)
 // 把in_order[L1..R1]和post_order[L2..R2]建成一棵二叉树，返回树根
 int build(int L1, int R1, int L2, int R2)
 {
+    // 递归出口
     if (L1 > R1)
         return 0; // 空树
     // 后序遍历最后一个就是根节点
