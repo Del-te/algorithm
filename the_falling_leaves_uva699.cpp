@@ -13,7 +13,7 @@ void build(int p) {
   int v;
   cin >> v;
   if(v == -1) return; // 空树
-  sum[p] += v;
+  sum[p] += v; // 数组里存的直接是累计数
   build(p - 1);
   build(p + 1);
 }
@@ -28,6 +28,7 @@ bool init() {
   sum[pos] = v;
   build(pos - 1); // 左子树
   build(pos + 1); // 右子树
+  return true;
 }
 
 int main() {
@@ -35,7 +36,6 @@ int main() {
   while(init()) {
     int p = 0;
     while(sum[p] == 0) p++; // 找最左边的叶子
-
     // 开始输出。因为要避免行末多余空格，所以稍微麻烦一点
     cout << "Case " << ++kase << ":\n" << sum[p++];
     while(sum[p] != 0) {
