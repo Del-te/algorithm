@@ -41,7 +41,7 @@ int build(int L1, int R1, int L2, int R2)
     int cnt = p - L1; 
     // 递归建树
     // L1到p-1是中序序列里的左子树节点，L2到L2+cnt-1是后序序列里的左子树节点
-    lch[root] = build(L1, p - 1, L2, L2 + cnt - 1);
+    lch[root] = build(L1, p - 1, L2, L2 + cnt - 1); // p指向的是根节点，因为是角标所以要减1
     // p+1到r1是后序序列里的右子树节点，L2+cnt到R2-1是后序序列里的右子树节点
     rch[root] = build(p + 1, R1, L2 + cnt, R2 - 1);
     return root;
