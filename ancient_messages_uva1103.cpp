@@ -67,6 +67,7 @@ int main()
         for(int i=1;i<=n;i++)
         {
             getchar();
+            // 每个字符为四个相邻像素点的十六进制，转为二进制后1表示黑点，0表示白点
             char ch;
             int len=1;
             for(int j=0;j<m;j++)
