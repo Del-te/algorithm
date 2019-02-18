@@ -14,7 +14,7 @@ void dfs(int r, int c, int id)
         return;
     // 连通分量编号
     idx[r][c] = id; 
-    for (int dr = -1; dr <= 1; dr++) // dfs周围八个方向
+    for (int dr = -1; dr <= 1; dr++) // 递归dfs周围八个方向
         for (int dc = -1; dc <= 1; dc++)
             if (dr != 0 || dc != 0)
                 dfs(r + dr, c + dc, id);
