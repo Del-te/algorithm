@@ -1,3 +1,4 @@
+// 翻转链表
 #include <iostream>
 #include <cstdio>
 #include <vector>
@@ -10,7 +11,7 @@ class ListNode
 public:
     int val;
     ListNode *next;
-    ListNode (int val)
+    ListNode (int val) // 构造函数
     {
         this->val = val;
         this->next = NULL;
@@ -24,15 +25,13 @@ int main()
         cin >> n;
         if (n == -1) break;
         ListNode dummy(0), *cur = &dummy;
-
-        // construct the linked list
+        // 链表初始化
         for (int i = 0; i < n; ++i) {
             int val; cin >> val;
             cur->next = new ListNode(val);
             cur = cur->next;
         }
-
-        // reverse
+        // 链表翻转
         ListNode *head = dummy.next;
         ListNode *prev = NULL;
         while (head) {
@@ -42,8 +41,7 @@ int main()
             head = next;
         }
         head = prev;
-
-        // print
+        // 输出链表
         while (head->next) {
             cout << head->val << " ";
             head = head->next;
