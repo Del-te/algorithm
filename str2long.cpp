@@ -4,8 +4,10 @@ int main()
 {  
     char buffer[20]="10549stend#12";  
     char *stop;  
-    int ans=strtol(buffer, &stop, 8); 
+    int ans=strtol(buffer, &stop, 8); // 第三个参数是进制
     // 将八进制数1054转成十进制，后面均为非法字符(大于等于第三个参数的数也非法)
+    printf("%d\n",ans);  
+    ans = atol(buffer);
     printf("%d\n",ans);  
     printf("%s\n", stop);  
     system("pause"); 
