@@ -30,5 +30,6 @@
         "**/.gitignore": true,
         "**/*.db": true
     },
-    "C_Cpp.errorSquiggles": "Enabled"
+    "C_Cpp.errorSquiggles": "Enabled",
+    "editor.formatOnType": true
 }
