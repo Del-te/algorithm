@@ -1,53 +1,95 @@
+// 回溯算法：8皇后问题
 #include <cstdio>
 #include <cstdlib>
-using namespace std;  
-int a[9][9];
-bool flag;  //判断已给定位置的皇后之间是否有冲突
-//第i行第j列为皇后，把该皇后能影响的位置设置为1
-void setValue(int m, int n){
-    int i, j;
-    for(i=1; i<=8; i++){    //行、列占满
-        a[m][i]=a[i][n]=1;
-    }
-    for(i=1;(m-i)>=0 && (n-i)>=0; i++) //左上角
-        a[m-i][n-i]=1;
-    for(i=1;(m-i)>=0 && (n+i)<=8; i++) //右上角
-        a[m-i][n+i]=1;
-    for(i=1;(m+i)<=8 && (n-i)>=0; i++) //左下角
-        a[m+i][n-i]=1;
-    for(i=1;(m+i)<=8 && (n+i)<=8; i++) //右下角
-        a[m+i][n+i]=1;
+using namespace std;
+const int DIM = 8;
+
+int is_a_solution(int a[DIM][DIM], int row);
+//void construct_candidates(int a[],int k,data input, int c[],int *ncandidates);
+void process_solution(int a[DIM][DIM]);
+//void make_move(int a[],int k, data input);
+//void unmake_move(int a[],int k,data inupt);
+
+// static int finished = 0;
+static int count = 0;
+
+int is_a_solution(int chess[DIM][DIM], int row)
+{
+    return (row == DIM);
 }
-int main(){
-    char str[10];
-    while(scanf("%s", str)!=EOF){
-        int i, j, last;
-        //初始化
-        flag=true; //无冲突
-        for(i=1;i<=8;i++)
-            for(j=1;j<=8;j++)
-                a[i][j]=0;
-        for(i=0;i<8;i++){
-            if(str[i]=='*'){
-                last=i+1;  //行、列都从1开始编号
-                continue;
-            }
-            int tmp=str[i]-'0';
-            if(a[i+1][tmp]==0){    //当前皇后位置与之前皇后无冲突
-                setValue(i+1, tmp);
-            }else{
-                flag=false;
-                break;
-            }
-        }
-        for(i=1;i<=8;i++)
-            if(a[last][i]==0)
-                break;
-        if(flag && i!=9)
-            printf("%d\n", i);
-        else 
-            printf("No Answer!\n");
+
+void process_solution(int chess[DIM][DIM])
+{
+    int i, j;
+    count++;
+    for (i = 0; i < DIM; i++)
+    {
+        for (j = 0; j < DIM; j++)
+            printf("%d ", chess[i][j]);
+        printf("\n");
     }
+    printf("\n");
+}
+
+int is_collision(int chess[DIM][DIM], int x, int y)
+{
+    int i, j;
+    // 对角线
+    for (i = x - 1, j = y - 1; i >= 0 && j >= 0; i--, j--)
+        if (chess[i][j] == 1)
+            return 1;
+    // 列
+    for (i = x - 1, j = y + 1; i >= 0 && j < DIM; i--, j++)
+        if (chess[i][j] == 1)
+            return 1;
     return 0;
+}
+
+void backtrack(int chess[DIM][DIM], int row, int *candidates)
+{
+    if (is_a_solution(chess, row))
+        process_solution(chess);
+    else
+    {
+        //construct_candidates(a,k,input,c,&ncandidates);
+        for (int i = 0; i < DIM; i++)
+        {
+            // 剪枝
+            if (candidates[i] || is_collision(chess, row, i))
+                continue;
+            //make_move(a,k,input);进行操作
+            chess[row][i] = 1;
+            candidates[i] = 1;
+
+            backtrack(chess, row + 1, candidates);
+
+            //unmake_move(a,k,input);撤销操作
+            chess[row][i] = 0;
+            candidates[i] = 0;
+        }
+    }
+}
+
+void generate_8queen(int chess[8][8])
+{
+    int candidates[DIM] = {0, 0, 0, 0, 0, 0, 0, 0};
+    backtrack(chess, 0, candidates);
+    printf("total:%d\n", count);
+    return;
+}
+
+int main()
+{
+    int chess[8][8] = {
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0},
+        {0, 0, 0, 0, 0, 0, 0, 0}};
+    generate_8queen(chess);
     system("pause");
+    return 0;
 }
