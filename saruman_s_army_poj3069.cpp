@@ -16,7 +16,7 @@ int solve()
     while (i < N)
     {
         // s是没有被覆盖的最左边的点的位置
-        int s = X[i]; // 原书是i++
+        int s = X[i]; // 原书是i++ 但是解题没有影响
         // 一直走到距离s大于R的点
         while (i < N && X[i] <= s + R)
             i++;
