@@ -43,7 +43,8 @@ int main()
     }
     cin >> w;
     // 将记忆数组初始化
-    memset(dp, -1, sizeof(dp));    
+    memset(dp, -1, sizeof(dp));  
+    // 从第0个物品，总重为w开始  
     cout << rec(0, w) << endl;
     system("pause");
     return 0;
