@@ -30,6 +30,7 @@ int rec(int i, int j)
     // 选择和没选择两种都试一下
     else
     {
+        // 选择价值最大的一个分支
         res = max(rec(i + 1, j), rec(i + 1, j - W[i]) + V[i]);
     }
     // 将计算结果放到记忆数组并返回
