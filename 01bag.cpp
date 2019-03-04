@@ -3,10 +3,11 @@
 #include <cstring>
 using namespace std;
 const int maxn = 100;
-int dp[maxn + 1][maxn + 1];
-int n;
-int w;
-int W[maxn], V[maxn];
+int dp[maxn + 1][maxn + 1]; // 记忆数组
+int n; // 一共几个物品
+int w; // 背包限重
+int W[maxn], V[maxn]; // W[i]是第i个物品的重量，V[i]是第i个物品的价值
+// 从第i个物品开始挑选总重小于j的部分
 int rec(int i, int j)
 {
     if (dp[i][j] > 0) 
@@ -15,14 +16,17 @@ int rec(int i, int j)
         return dp[i][j];
     }
     int res;
+    // 递归边界
     if (i == n) 
     {
         res = 0;
     }
+    // 如果无法选择第i个物品
     else if (j < W[i])
     {
         res = rec(i + 1, j);
     }
+    // 选择和没选择两种都试一下
     else
     {
         res = max(rec(i + 1, j), rec(i + 1, j - W[i]) + V[i]);
@@ -37,6 +41,7 @@ int main()
         cin >> W[i] >> V[i];
     }
     cin >> w;
+    // 将记忆数组初始化
     memset(dp, -1, sizeof(dp));    
     cout << rec(0, w) << endl;
     system("pause");
