@@ -9,12 +9,14 @@ int w;
 int W[maxn], V[maxn];
 int rec(int i, int j)
 {
-    if (dp[i][j] > 0) {
+    if (dp[i][j] > 0) 
+    {
         // 已经计算过的话，直接使用前面的值
         return dp[i][j];
     }
     int res;
-    if (i == n) {
+    if (i == n) 
+    {
         res = 0;
     }
     else if (j < W[i])
