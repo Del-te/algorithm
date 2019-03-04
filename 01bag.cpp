@@ -31,6 +31,7 @@ int rec(int i, int j)
     {
         res = max(rec(i + 1, j), rec(i + 1, j - W[i]) + V[i]);
     }
+    // 将计算结果放到记忆数组并返回
     return (dp[i][j] = res);
 }
 int main()
