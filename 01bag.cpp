@@ -24,6 +24,7 @@ int rec(int i, int j)
     // 如果无法选择第i个物品
     else if (j < W[i])
     {
+        // 尝试挑选下一个物品
         res = rec(i + 1, j);
     }
     // 选择和没选择两种都试一下
