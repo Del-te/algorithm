@@ -3,7 +3,7 @@
 #include <cstring>
 using namespace std;
 const int maxn = 50;
-int vis[3][maxn];
+int vis[3][maxn]; // 数组大小要管够
 int N;
 int count = 0;
 void tracing_back(int cur)
