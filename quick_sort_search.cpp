@@ -1,4 +1,5 @@
 // 分治法：快速选择问题 
+// 快排的思想进行查找
 // 时间复杂度O(n)
 #include <iostream>
 using namespace std;
