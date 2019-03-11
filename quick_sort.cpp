@@ -7,6 +7,7 @@ int partition(int* A, int first, int end)
     int i = first, j = end;
     while (i < j)
     {
+        // 左
         while (i < j && A[i] <= A[j])
         {
             j--;
@@ -18,6 +19,7 @@ int partition(int* A, int first, int end)
             A[j] = t;
             i++;
         }
+        // 右
         while (i < j && A[i] <= A[j])
         {
             i++;
