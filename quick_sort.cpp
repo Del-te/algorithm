@@ -55,7 +55,6 @@ int main()
     {
         cout << A[i] << endl;
     }
-    
     system("pause");
     return 0;
 }
