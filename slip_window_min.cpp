@@ -1,5 +1,6 @@
 // 滑动窗口的最小值问题
 // 维护一个单调队列（利用双端队列实现）解决
+// 先排除一些干扰元素，把有用的元素组织成易于操作的数据结构
 #include <iostream>
 #include <queue>
 using namespace std;
