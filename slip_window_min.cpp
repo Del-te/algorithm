@@ -1,5 +1,5 @@
 // 滑动窗口的最小值问题
-// 使用单调队列（利用双端队列实现）解决
+// 维护一个单调队列（利用双端队列实现）解决
 #include <iostream>
 #include <queue>
 using namespace std;
