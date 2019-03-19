@@ -24,6 +24,7 @@ int go(int i, int j, int n)
 	if (i % 2 == 1 && j % 2 == 1 )return 1;     
 	//i>2的偶数行，一定有连续三个小点，所以三个小点的左边 j<=i-3，j为奇数时画 $ 
 	if (j % 2 == 1 && j <= i - 3) return 1; 
+    // 注意!不满足条件的默认返回0！！
     return 0; 
 }
 
