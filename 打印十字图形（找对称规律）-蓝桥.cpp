@@ -1,5 +1,5 @@
 #include <stdio.h>  
-
+#include <cstdlib>
 int go(int i, int j, int n) 
 {      
 	//上下对称
@@ -43,6 +43,7 @@ int main()
             printf(".");         
         }          
         printf("\n");     
-    }           
+    }
+    system("pause");
     return 0; 
 } 
