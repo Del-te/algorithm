@@ -29,8 +29,8 @@ int go(int n){
 			if(n == a + b / c && b % c == 0)
 			{
 				ans++;
-//				cout << ans << endl;
-//				cout << a << ' ' << b << ' ' << c << endl;
+				cout << ans << endl;
+				cout << a << ' ' << b << ' ' << c << endl;
 			}
 		}	
 	}
@@ -42,6 +42,7 @@ int main(){
 	do{
 		go(n);
 	}while(next_permutation(list, list + 9));
-	cout << ans;
+	cout << ans << endl;
+	system("pause");
 	return 0;
 } 
