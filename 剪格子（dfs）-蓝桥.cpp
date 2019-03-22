@@ -8,7 +8,7 @@ int a[maxn][maxn];
 int vis[maxn][maxn];
 int dx[] = {0, 0, -1, 1};
 int dy[] = {-1, 1, 0, 0};
-//一共n行，一行m个 
+// 一共n行，一行m个 
 int n, m;
 int sum = 0;
 int ans = 100;
