@@ -2,7 +2,7 @@
 // 找到最远点v，然后以此点v，进行一次DFS（BFS），
 // 找到最远点u，u到v就是树的直径，记做d(u,v)。
 
-// 此做法依然无法通过巨量数据
+// 此做法依然无法通过巨量数据，气气气
 #include<iostream>
 #include<cstring>
 #include<algorithm>
