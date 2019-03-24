@@ -30,5 +30,7 @@
 *.exe
 *.out
 *.app
-
-*.vscode*gitignore*.bin*.ipch
+*.vscode
+*gitignore
+*.bin
+*.ipch
