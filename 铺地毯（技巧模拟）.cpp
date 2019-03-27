@@ -1,4 +1,3 @@
-// 注意模拟技巧
 #include <iostream>
 using namespace std;
 
