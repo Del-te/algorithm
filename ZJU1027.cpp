@@ -41,7 +41,7 @@ int convert(char c)
     case '-':
         return 4;
     }
-    return 5;
+    return -1;
 }
 
 int main()
