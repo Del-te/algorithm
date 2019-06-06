@@ -12,6 +12,9 @@ const int score[5][5] = {{5, -1, -2, -1, -3},
                          {-1, -2, -2, 5, -1},
                          {-3, -4, -2, -1, 0}};
 
+// 记忆数组，gene[i][j]表示基因子串str1[0...i-1]和str2[0...j-1]的分值
+int gene[MaxN][MaxN];
+
 // 求三个数最大值
 int get_max(int num1, int num2, int num3)
 {
@@ -23,7 +26,7 @@ int get_max(int num1, int num2, int num3)
     return result;
 }
 
-// 将AGCT-转化为整数进行处理
+// 将‘A’、‘G’、‘C’、‘T’、‘-’转化为正整数进行处理
 int convert(char c)
 {
     switch (c)
@@ -50,9 +53,6 @@ int main()
     char str1[MaxN], str2[MaxN];
     // 第一个序列的长度，第二个序列的长度
     int len_a, len_b;
-    // 记录动态规划过程中产生的中间结果
-    // gene[i][j]表示基因子串str1[0...i-1]和str2[0...j-1]的分值
-    int gene[MaxN][MaxN];
 
     cin >> n;
     for (int k = 0; k < n; k++)
