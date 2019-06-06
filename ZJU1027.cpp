@@ -1,7 +1,5 @@
 // @Author 贾立威 201710405130
-#include <cstdio>
 #include <iostream>
-#include <cstdlib>
 using namespace std;
 const int MaxN = 101;
 
