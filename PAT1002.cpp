@@ -37,6 +37,35 @@ int main()
     system("pause");
     return 0;
 }
+// 太菜了，手生了，都忘了int转cstring用sprintf()就好了
+
+// #include <iostream>
+// #include <string>
+// #include <cstring>
+// using namespace std;
+// const string pinyin[10] = 
+//     {"ling", "yi", "er", "san", "si", "wu", "liu", "qi", "ba", "jiu"};
+
+// int main()
+// {
+//     char s[100];
+//     char m[4];
+//     scanf("%s",s);
+//     int i,j,len1,len2,sum=0;
+//     len1=strlen(s);
+//     for(i=0;i<len1;i++)
+//     {
+//         sum+=s[i]-'0';
+//     }
+//     sprintf(m,"%d",sum);
+//     len2=strlen(m);
+//     for(j=0;j<len2;j++)
+//     {
+//         cout << pinyin[m[j] - '0'];
+//         if(j!=len2-1) printf(" ");
+//     }
+//     return 0;
+// }
 
 // 读入一个正整数 n，计算其各位数字之和，用汉语拼音写出和的每一位数字。
 
